@@ -224,17 +224,17 @@
 
           function formatYAxisLabel(value) {
               if (value < 1024) {
-                  return value + ' Kb/s';
+                  return value + ' MB/s';
               } else if (value < 1024 * 1024) {
-                  return (value / 1024).toFixed(2) + ' MB/s';
+                  return (value / 1024).toFixed(2) + ' GB/s';
               } else if (value < 1024 * 1024 * 1024) {
-                  return (value / (1024 * 1024)).toFixed(2) + ' GB/s';
+                  return (value / (1024 * 1024)).toFixed(2) + ' TB/s';
               } else {
-                  return (value / (1024 * 1024 * 1024)).toFixed(2) + ' TB/s';
+                  return (value / (1024 * 1024 * 1024)).toFixed(2) + ' PB/s';
               }
           }
 
-          document.getElementById('left-container').querySelector('.data').textContent = formatNumber(Math.round(averageRequests));
+          document.getElementById('left-container').querySelector('.data').textContent = formatNumber(Math.round(peakRequests));
           document.getElementById('center-container').querySelector('.data').textContent = formatPPSValue(peakPps);
           document.getElementById('right-container').querySelector('.data').textContent = formatNumber2(totalRequests);
 
